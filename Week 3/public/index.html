@@ -6,6 +6,7 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!--Import materialize.css-->
     <link type="text/css" rel="stylesheet" href="css/materialize.min.css" media="screen,projection" />
+    <link type="text/css" rel="stylesheet" href="css/carousel.css" />
 
     <!--Let browser know website is optimized for mobile-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -17,65 +18,177 @@
 
 <body>
     <!-- Navbar goes here -->
+    <!-- Dropdown Structure with links -->
+    <ul id="dropdown1" class="dropdown-content" style="background-color: #222;">
+        <li><a href="https://science.nasa.gov/mercury/">Mercury</a></li>
+        <li class="divider"></li>
+        <li><a href="https://science.nasa.gov/venus/">Venus</a></li>
+        <li class="divider"></li>
+        <li><a href="https://en.wikipedia.org/wiki/Earth">Earth</a></li>
+        <li class="divider"></li>
+        <li><a href="https://science.nasa.gov/mars/">Mars</a></li>
+        <li class="divider"></li>
+        <li><a href="https://science.nasa.gov/jupiter/">Jupiter</a></li>
+        <li class="divider"></li>
+        <li><a href="https://science.nasa.gov/saturn/">Saturn</a></li>
+        <li class="divider"></li>
+        <li><a href="https://science.nasa.gov/uranus/facts/">Uranus</a></li>
+        <li class="divider"></li>
+        <li><a href="https://science.nasa.gov/neptune/">Neptune</a></li>
+    </ul>
     <nav>
-        <div class="nav-wrapper">
-            <a href="#" class="brand-logo">Logo</a>
+        <div class="nav-wrapper" style="background-color: #222;">
+            <img src="./assets/logo.png" alt="" width="70" height="60"> <a href="index.html" class="brand-logo"> SIT725
+                -
+                WEEK3</a>
             <ul id="nav-mobile" class="right hide-on-med-and-down">
-                <li><a href="sass.html">Sass</a></li>
-                <li><a href="badges.html">Components</a></li>
-                <li><a href="collapsible.html">JavaScript</a></li>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <!-- <li><a href="collapsible.html">Planets</a></li> -->
+                <li><a class="dropdown-trigger" href="#!" data-target="dropdown1">Planets<i
+                            class="material-icons right">arrow_drop_down</i></a></li>
+
             </ul>
         </div>
     </nav>
+
+    <!-- SLider -->
+
+    <div class="slider">
+        <ul class="slides">
+            <li>
+                <img src="https://wallpapers.com/images/hd/solar-system-in-a-row-tqqz1cv6ba10znyf.webp">
+                <!-- random image -->
+                <div class="caption center-align">
+                    <h3>This is our Solar System!</h3>
+                    <h5 class="light grey-text text-lighten-3">Explore the Wonders of Our Universe</h5>
+                </div>
+            </li>
+            <li>
+                <img src="https://wallpapershome.com/images/pages/pic_h/25249.jpg">
+                <!-- random image -->
+                <div class="caption left-align">
+                    <h3>Our Home, The Blue Planet</h3>
+                    <h5 class="light grey-text text-lighten-3">Discover Earth's Beauty and Vitality</h5>
+                </div>
+            </li>
+            <li>
+                <img src="https://stsci-opo.org/STScI-01GF49BHZJ1WX8W803281HRBCW.png">
+                <!-- random image -->
+                <div class="caption right-align">
+                    <h3>The Infinite Cosmos</h3>
+                    <h5 class="light grey-text text-lighten-3">Unveiling the Mysteries Beyond Our Reach</h5>
+                </div>
+            </li>
+
+        </ul>
+    </div>
     <br>
-    <h1 class="green-text center">This is the week 3 workshop</h1>
+    <div class="row">
+        <!-- <div class="col s4 ">
+            <img class="materialboxed" width="350" style="border-radius: 10px;"
+                src="https://wallpapers.com/images/hd/earth-and-moon-in-space-9rpiat57g549o40r.webp">
+            <h5>Earth</h5>
+            <p>Earth is the only planet known to support life, with a perfect balance of atmosphere, water,<br> and
+                temperature.</p>
+            <a class="waves-effect waves-light btn button1 " style="background-color: #222;"
+                href="https://en.wikipedia.org/wiki/Earth">Read More</a> -->
 
-    <!-- Page Layout here -->
-    <div class="row red">
-        <p>This is the row of the grid</p>
-        <div class="col s3 green">
-            <p>first column</p>
-            <!-- Grey navigation panel -->
+
+        <!-- </div> -->
+        <!-- <div class="row"> -->
+        <div class="col s12 m4">
+            <div class="card">
+                <div class="card-image">
+                    <img src="https://wallpapers.com/images/hd/earth-and-moon-in-space-9rpiat57g549o40r.webp" , alt="" ,
+                        width='auto' , height="300px">
+                    <span class="card-title">Earth</span>
+                    <a class="btn-floating halfway-fab waves-effect waves-light red"><i
+                            class="material-icons">add</i></a>
+                </div>
+                <div class="card-content">
+                    <p>Earth is the only planet known to support life, with a perfect balance of atmosphere, water,
+                        and
+                        temperature.</p>
+                </div>
+            </div>
         </div>
-
-        <div class="col s9 blue">
-            <p>second column</p>
-            <!-- Teal page content  -->
+        <div class="col s12 m4">
+            <div class="card">
+                <div class="card-image">
+                    <img src="https://wallpapers.com/images/hd/southern-hemisphere-of-jupiter-bzr1zb3vy05uw7oj.webp"
+                        width='auto' , height="300px">
+                    <span class="card-title">Jupiter</span>
+                    <a class="btn-floating halfway-fab waves-effect waves-light red"><i
+                            class="material-icons ">add</i></a>
+                </div>
+                <div class="card-content">
+                    <p>Jupiter is the largest planet in our solar system, with a mass more than twice that of all the
+                        other
+                        planets combined.</p>
+                </div>
+            </div>
         </div>
-
+        <div class="col s12 m4">
+            <div class="card">
+                <div class="card-image">
+                    <img src="https://wallpapers.com/images/high/venus-pictures-qd2kt982bnul9c9e.webp" width='auto' ,
+                        height="300px">
+                    <span class="card-title">Mars</span>
+                    <a class="btn-floating halfway-fab waves-effect waves-light red"><i
+                            class="material-icons">add</i></a>
+                </div>
+                <div class="card-content">
+                    <p>>Mars, often called the "Red Planet," has a cold, dry surface and features the tallest volcano
+                        and deepest canyon in the solar system.</p>
+                </div>
+            </div>
+        </div>
 
     </div>
 
-    <!-- Modal Trigger -->
-    <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Modal</a>
 
 
-    <!-- Modal Structure -->
-    <div id="modal1" class="modal">
-        <div class="modal-content">
-            <h4>Modal Header</h4>
-            <p>A bunch of text</p>
-        </div>
-        <div class="modal-footer">
-            <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
-        </div>
+
+
+    <!-- Floating action button -->
+    <div class="fixed-action-btn">
+        <a class="btn-floating btn-large black">
+            <i class="large material-icons">mode_edit</i>
+        </a>
+        <ul>
+            <li><a href="index.html" class="btn-floating black"><i class="material-icons">home</i></a></li>
+            <li><a href="index.html" class="btn-floating black"><i class="material-icons">home</i></a></li>
+
+        </ul>
     </div>
 
-    <br>
-    <br>
-    <!-- workshop task color changing button -->
-    <a class="waves-effect waves-light btn button1">button</a>
-
-
-
-
-    <br>
-    <br>
-    <button class="btn waves-effect waves-light" type="submit" name="action">Submit
-        <i class="material-icons right">send</i>
-    </button>
-
-
+    <!-- footer -->
+    <footer class="page-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col l6 s12">
+                    <h5 class="white-text">SIT725 - 3.2P</h5>
+                    <p class="grey-text text-lighten-4">This task will teach us how to learn and utilize the bootstrap
+                        on the website.</p>
+                </div>
+                <div class="col l4 offset-l2 s12">
+                    <h5 class="white-text">Our Links</h5>
+                    <ul>
+                        <li><a href="index.html" class="grey-text text-lighten-3">Home</a></li>
+                        <li><a href="about.html" class="grey-text text-lighten-3">About</a></li>
+                        <li><a href="contact.html" class="grey-text text-lighten-3">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-copyright">
+            <div class="container">
+                © 2014 Copyright | Developed by Pranjal Piya
+            </div>
+        </div>
+    </footer>
 
 
 
