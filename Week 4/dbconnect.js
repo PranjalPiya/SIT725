@@ -1,26 +1,23 @@
-const { ServerApiVersion, MongoClient } = require('mongodb');
+require('dotenv').config(); // Load environment variables
+const { MongoClient } = require('mongodb');
 
-// var MongoClient = require('mongodb').MongoClient;
-const DB_URL = process.env.MONGO_URI;
+const uri = process.env.MONGO_URI;
 
-const client = new MongoClient(DB_URL, {
-    serverApi: {
-        version: ServerApiVersion.v1,
-        strict: true,
-        deprecationErrors: true,
+async function connectToDB() {
+    try {
+        const client = new MongoClient(uri);
+        await client.connect();
+        const db = client.db('blogDB');
 
+        // Create 'blogs' collection explicitly (optional)
+        await db.createCollection('blogs');  // This step ensures the collection is created if it doesn't exist
+        await db.createCollection('contact');
+        console.log('Connected to MongoDB!');
+        return client;  // Return the client to use it elsewhere
+    } catch (error) {
+        console.error('Error connecting to MongoDB:', error);
+        throw error;  // Propagate the error for handling in the routes
     }
-})
+}
 
-client.connect()
-module.exports = client
-
-// MongoClient.connect(DB_URL, function (err, db) {
-//     if (err) throw err;
-//     var dbo = db.db("SIT725WEEK4");
-//     dbo.createCollection("customers", function (err, res) {
-//         if (err) throw err;
-//         console.log("Collection created!");
-//         db.close();
-//     });
-// });
+module.exports = { connectToDB };

@@ -1,42 +1,31 @@
 
-// var express = require("express")
-// require("./dbConnect");
-// var app = express()
-// app.use(express.static(__dirname + '/public'))
-// app.use(express.json());
-// app.use(express.urlencoded({ extended: false }));
-// var port = process.env.port || 3000;
-// // const addTwoNumber = (n1, n2) => {
-// //     return n1 + n2;
-// // }
+const dotenv = require('dotenv');
+const express = require('express');
+const path = require('path'); // Import the path module
+const blogRoutes = require('./public/routes/blogRoutes'); // Import your blog routes
+const contactRoutes = require('./public/routes/contactRoutes');
+dotenv.config();
 
-// // //GET method of HTTP
-// // app.get("/addTwoNumber", (req, res) => {
-// //     const n1 = parseInt(req.query.n1);
-// //     const n2 = parseInt(req.query.n2);
-// //     const result = addTwoNumber(n1, n2);
-// //     res.json({ statuscocde: 200, data: result });
-// // });
+require("./dbconnect");
 
-// app.listen(port, () => {
-//     console.log(`App listening to port ${port}`)
-// })
+const app = express();
+
+// Middleware to parse incoming JSON data
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+// Serve static files from the "public" directory
+app.use(express.static(path.join(__dirname, 'public')));
+
+// Route to serve the index.html file
+app.get('/', function (req, res) {
+    res.sendFile(path.join(__dirname, 'public', 'index.html'));
+});
+
+// Use blog routes
+app.use('/api', blogRoutes);
+app.use('/contact', contactRoutes);
 
 
-require('dotenv').config(); // Load environment variables
-const { MongoClient } = require('mongodb');
-
-const uri = process.env.MONGO_URI;
-
-async function connectToDB() {
-    try {
-        const client = new MongoClient(uri);
-        await client.connect();
-        console.log('Connected to MongoDB!');
-        await client.close();
-    } catch (error) {
-        console.error('Error connecting to MongoDB:', error);
-    }
-}
-
-connectToDB();
+// Set up the server
+const port = process.env.PORT || 3000;
+app.listen(port, () => console.log(`Listening on port ${port}...`));
