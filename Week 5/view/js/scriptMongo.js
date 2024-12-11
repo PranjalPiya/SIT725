@@ -1,6 +1,6 @@
 const addCards = (items) => {
     items.forEach(blog => {
-        console.log(blog);  // Check the blog data structure
+        console.log(blog);
         let shortDescription = blog.description.length > 100 ? blog.description.substring(0, 100) + '...' : blog.description;
 
         let itemToAppend =
@@ -35,7 +35,7 @@ const blogSubmit = () => {
         description: $('#description').val()
     };
 
-    // Basic validation
+    //  validation
     if (!formData.first_name || !formData.last_name || !formData.title || !formData.description) {
         alert("Please fill out all required fields.");
         return;
@@ -49,8 +49,8 @@ function postingBlog(blog) {
     $.ajax({
         url: '/api/blog',
         type: 'POST',
-        data: JSON.stringify(blog), // Stringify the blog object for JSON format
-        contentType: 'application/json', // Tell the server you're sending JSON
+        data: JSON.stringify(blog), // Convert to JSON string
+        contentType: 'application/json',
         success: (result) => {
             if (result.statusCode === 201 || result.statusCode === 200) {
                 alert('Blog submitted successfully');
@@ -73,7 +73,7 @@ const contactSubmit = () => {
         message: $('#message').val()
     };
 
-    // Basic validation
+    //  validation
     if (!formData.full_name || !formData.email || !formData.message) {
         alert("Please fill out all required fields.");
         return;
@@ -107,7 +107,7 @@ function gettingAllBlogs() {
     $('#loader').show();
     $('#empty-container').show();
     $.get('/api/blogs', (result) => {
-        // console.log(result);  // Add this to check the result
+
         if (result.statusCode === 200) {
             $('#loader').hide();
             $('#empty-container').hide();
