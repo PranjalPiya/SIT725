@@ -13,7 +13,6 @@ const app = express();
 // Middleware to parse incoming JSON data
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-// Serve static files from the "public" directory
 app.use(express.static(path.join(__dirname, 'public')));
 
 // Route to serve the index.html file

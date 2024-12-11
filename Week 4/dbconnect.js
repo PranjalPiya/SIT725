@@ -9,7 +9,6 @@ async function connectToDB() {
         await client.connect();
         const db = client.db('blogDB');
 
-        // Create 'blogs' collection explicitly (optional)
         await db.createCollection('blogs');  // This step ensures the collection is created if it doesn't exist
         await db.createCollection('contact');
         console.log('Connected to MongoDB!');
