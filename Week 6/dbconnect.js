@@ -11,9 +11,12 @@ const client = new MongoClient(uri, {
     }
 })
 
+let isConnected = false;
+
 // Using async function for better error handling
 async function connectDB() {
     try {
+        isConnected = true;
         await client.connect();
         console.log('Connected to MongoDB');
     } catch (error) {
@@ -24,4 +27,4 @@ async function connectDB() {
 
 connectDB();
 
-module.exports = client;
+module.exports = { client, isConnected };
